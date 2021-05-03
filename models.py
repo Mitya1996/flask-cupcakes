@@ -41,3 +41,15 @@ class Cupcake(db.Model):
         nullable=False,
         default='https://tinyurl.com/demo-cupcake'
     )
+
+    @property
+    def serialized(self):
+        """Serialize a Cupcake SQLAlchemy obj to dictionary."""
+
+        return {
+            "id": self.id,
+            "flavor": self.flavor,
+            "size": self.size,
+            "rating": self.rating,
+            "image": self.image,
+        }
